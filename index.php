@@ -1,28 +1,59 @@
-<?php require_once "header.php"; ?>
+<?php
+require_once "./config/db.php";
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB) or die("Connection error!");
 
-                <form action="/process/login.php" method="post">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+$query = mysqli_query($conn, "SELECT * FROM users");
 
-            </div>
+
+$user = ["first_name" => "Irena", "last_name" => "Kunovska", "email" => "irena@pingdevs.com"];
+
+
+$users = [];
+
+while($row = mysqli_fetch_assoc($query)) {
+    $users[] = $row;
+}
+
+require_once "header.php";
+
+
+
+?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                foreach($users as $user) {
+                    echo '<tr>
+                    <td><a href="/showuser.php?id='.$user['id'].'">'.$user['id'].'</a></td>
+                    <td>'.$user['first_name'].'</td>
+                    <td>'.$user['last_name'].'</td>
+                    <td>'.$user['dob'].'</td>
+                    <td>'.$user['email'].'</td>
+                    <td><a href="deleteuser.php?id='.$user['id'].'" class="btn btn-danger">Delete</a></td>
+                </tr>';
+                }
+
+                ?>
+                </tbody>
+            </table>
         </div>
     </div>
-
+</div>
 <?php require_once "footer.php"; ?>
+
