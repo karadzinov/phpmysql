@@ -1,7 +1,7 @@
 <?php
 require_once "./config/db.php";
 
-$id = $_GET['id'];
+$id = $_GET['id']; // 7
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB);
 

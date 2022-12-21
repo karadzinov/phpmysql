@@ -3,7 +3,7 @@ require_once "./config/db.php";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB) or die("Connection error");
 
-$id = $_GET['id'];
+$id = $_GET['id']; // 7
 
 $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'");
 

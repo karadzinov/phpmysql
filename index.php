@@ -15,6 +15,8 @@ while($row = mysqli_fetch_assoc($query)) {
     $users[] = $row;
 }
 
+
+
 require_once "header.php";
 
 
@@ -22,6 +24,12 @@ require_once "header.php";
 ?>
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <a href="/createuser.php" class="btn btn-primary">+ Create User</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <table class="table">
@@ -38,6 +46,9 @@ require_once "header.php";
                 <tbody>
                 <?php
 
+
+
+
                 foreach($users as $user) {
                     echo '<tr>
                     <td><a href="/showuser.php?id='.$user['id'].'">'.$user['id'].'</a></td>
@@ -45,7 +56,10 @@ require_once "header.php";
                     <td>'.$user['last_name'].'</td>
                     <td>'.$user['dob'].'</td>
                     <td>'.$user['email'].'</td>
-                    <td><a href="deleteuser.php?id='.$user['id'].'" class="btn btn-danger">Delete</a></td>
+                    <td>
+                    <a href="/deleteuser.php?id='.$user['id'].'" class="btn btn-danger">Delete</a>
+                    <a href="/edituser.php?id='.$user['id'].'" class="btn btn-warning">Edit</a>
+                    </td>
                 </tr>';
                 }
 
