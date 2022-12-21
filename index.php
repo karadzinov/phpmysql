@@ -11,14 +11,12 @@ $user = ["first_name" => "Irena", "last_name" => "Kunovska", "email" => "irena@p
 
 $users = [];
 
-while($row = mysqli_fetch_assoc($query)) {
+while ($row = mysqli_fetch_assoc($query)) {
     $users[] = $row;
 }
 
 
-
 require_once "header.php";
-
 
 
 ?>
@@ -47,18 +45,16 @@ require_once "header.php";
                 <?php
 
 
-
-
-                foreach($users as $user) {
+                foreach ($users as $user) {
                     echo '<tr>
-                    <td><a href="/showuser.php?id='.$user['id'].'">'.$user['id'].'</a></td>
-                    <td>'.$user['first_name'].'</td>
-                    <td>'.$user['last_name'].'</td>
-                    <td>'.$user['dob'].'</td>
-                    <td>'.$user['email'].'</td>
+                    <td><a href="/showuser.php?id=' . $user['id'] . '">' . $user['id'] . '</a></td>
+                    <td>' . $user['first_name'] . '</td>
+                    <td>' . $user['last_name'] . '</td>
+                    <td>' . $user['dob'] . '</td>
+                    <td>' . $user['email'] . '</td>
                     <td>
-                    <a href="/deleteuser.php?id='.$user['id'].'" class="btn btn-danger">Delete</a>
-                    <a href="/edituser.php?id='.$user['id'].'" class="btn btn-warning">Edit</a>
+                    <a href="/deleteuser.php?id=' . $user['id'] . '" class="btn btn-danger">Delete</a>
+                    <a href="/edituser.php?id=' . $user['id'] . '" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>';
                 }
