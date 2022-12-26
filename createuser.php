@@ -9,35 +9,31 @@
     <div class="row">
         <div class="col-md-12">
             <form action="/process/register.php" method="post">
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" id="first_name" aria-describedby="First Name" name="first_name">
-
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="first_name">
                 </div>
 
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" id="last_name" aria-describedby="Last Name" name="last_name">
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label  class="form-label" for="last_name">Last Name</label>
+                    <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)"  name="last_name">
                 </div>
 
 
-                <div class="form-group">
-                    <label for="dob">DOB</label>
-                    <input type="date" class="form-control" id="dob" aria-describedby="dob" name="dob">
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label for="dob"  class="form-label">DOB</label>
+                    <input type="date" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="dob">
                 </div>
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label for="exampleInputEmail1"  class="form-label">Email address</label>
+                    <input type="email" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)"  name="email">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label for="exampleInputPassword1"  class="form-label">Password</label>
+                    <input type="password" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)"  name="password">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
