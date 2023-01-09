@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="/process/createproduct.php" method="post">
+            <form action="/process/createproduct.php" method="post" enctype="multipart/form-data">
                 <div class="input-group input-group-outline my-3 focused is-focused">
                     <label class="form-label">Name</label>
                     <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="name">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="input-group input-group-outline my-3 focused is-focused">
                     <label for="exampleInputPassword1"  class="form-label">Image</label>
-                    <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image">
+                    <input type="file" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

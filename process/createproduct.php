@@ -2,6 +2,8 @@
 
 require_once "../config/function.php";
 
+
+
 if (isset($_POST['name']) && !empty($_POST['name'])) {
     $name = $_POST['name'];
 } else {
@@ -26,10 +28,11 @@ if (isset($_POST['price']) && !empty($_POST['price'])) {
     $price = '';
 }
 
-if (isset($_POST['image']) && !empty($_POST['image'])) {
-    $image = $_POST['image'];
-} else {
-    $image = '';
+$image = uploadImage($_FILES["image"], "../images/");
+
+if(is_array($image)) {
+    print_r($image["error"]);
+    die();
 }
 
 $data = [

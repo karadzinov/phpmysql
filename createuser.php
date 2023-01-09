@@ -8,7 +8,15 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="/process/register.php" method="post">
+            <form action="/process/register.php" method="post" enctype="multipart/form-data">
+
+
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image">
+                </div>
+
+
                 <div class="input-group input-group-outline my-3 focused is-focused">
                     <label class="form-label">First Name</label>
                     <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="first_name">

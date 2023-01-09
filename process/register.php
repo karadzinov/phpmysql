@@ -1,5 +1,7 @@
 <?php
 
+require_once "../config/function.php";
+
 if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
     $first_name = $_POST['first_name'];
 } else {
@@ -30,17 +32,27 @@ if(isset($_POST['dob']) && !empty($_POST['dob'])) {
     $dob = '';
 }
 
+$image = uploadImage($_FILES['image'], '../images/');
 
-require_once "../config/db.php";
+if(is_array($image)) {
+    print_r($image['errors']);
+    die();
+}
 
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB) or die("Connection error");
 
-$queryExecute = "INSERT INTO users (first_name, last_name, email, password, dob) VALUES ('$first_name', '$last_name', '$email', '$password', '$dob')";
+$data = [
+    "first_name" => $first_name,
+    "last_name" => $last_name,
+    "dob"       => $dob,
+    "email"     => $email,
+    "password"  => $password,
+    "image"     => $image
+];
 
 
-$query = mysqli_query($conn, $queryExecute);
+$user = insert($conn, $data, "users");
 
-if($query) {
+if($user) {
     header('Location: /index.php');
 } else {
     header('Location: 404.php');

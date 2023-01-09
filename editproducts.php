@@ -15,7 +15,7 @@ $product = get($conn, $id, 'products');
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="/process/editproduct.php" method="post">
+            <form action="/process/editproduct.php" method="post" enctype="multipart/form-data">
 
                 <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
                 <div class="input-group input-group-outline my-3 focused is-focused">
@@ -59,7 +59,7 @@ $product = get($conn, $id, 'products');
                 </div>
                 <div class="input-group input-group-outline my-3 focused is-focused">
                     <label for="exampleInputPassword1"  class="form-label">Image</label>
-                    <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image" value="<?php echo $product['image'] ?>">
+                    <input type="file" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image" value="<?php echo $product['image'] ?>">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

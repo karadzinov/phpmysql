@@ -32,11 +32,7 @@ if (isset($_POST['price']) && !empty($_POST['price'])) {
     $price = '';
 }
 
-if (isset($_POST['image']) && !empty($_POST['image'])) {
-    $image = $_POST['image'];
-} else {
-    $image = '';
-}
+$image = uploadImage($_FILES['image'], '../images/');
 
 
 $data = [

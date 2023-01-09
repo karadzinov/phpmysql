@@ -46,7 +46,7 @@ require_once "header.php";
                 foreach ($products as $product) {
                     echo '<tr>
                     <td><a href="/showproduct.php?id=' . $product['id'] . '">' . $product['id'] . '</a></td>
-                          <td><img src="' . $product['image'] . '" alt="' . $product['name'] . '" style="max-width: 150px;"/></td>
+                          <td><img src="/images/' . $product['image'] . '" alt="' . $product['name'] . '" style="max-width: 150px;"/></td>
                     <td>' . $product['name'] . '</td>
               
                     <td>' . $product['price'] . '</td>

@@ -13,7 +13,7 @@ require_once "header.php";
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p><img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"></p>
+                <p><img src="/images/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"></p>
                 <p>Product name: <?php echo $product['name']; ?></p>
             </div>
 

@@ -3,7 +3,7 @@
 session_start();
 
 
-if(!isset($_SESSION["user"]) && empty($_SESSION["user"])) {
+if (!isset($_SESSION["user"]) && empty($_SESSION["user"])) {
     header('Location: /login.php');
 }
 
@@ -43,6 +43,7 @@ require_once "header.php";
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Image</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>DOB</th>
@@ -56,6 +57,7 @@ require_once "header.php";
 
                 foreach ($users as $user) {
                     echo '<tr>
+                    <td><img src="/images/' . $user['image'] . '" style="max-width: 100px;"/></td>
                     <td><a href="/showuser.php?id=' . $user['id'] . '">' . $user['id'] . '</a></td>
                     <td>' . $user['first_name'] . '</td>
                     <td>' . $user['last_name'] . '</td>

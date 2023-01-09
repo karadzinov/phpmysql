@@ -1,5 +1,7 @@
 <?php
 
+require_once "../config/function.php";
+
 if(isset($_POST['id']) && !empty($_POST['id'])) {
     $id = $_POST['id'];
 } else {
@@ -36,6 +38,8 @@ if(isset($_POST['dob']) && !empty($_POST['dob'])) {
     $dob = '';
 }
 
+$image = uploadImage($_FILES['image'], "../images/");
+
 
 require_once "../config/db.php";
 
@@ -61,7 +65,9 @@ if(!empty($last_name)) {
     $buildQuery[] =  "last_name = '$last_name'";
 }
 
-
+if(!empty($image)) {
+    $buildQuery[] =  "image = '$image'";
+}
 
 $buildQuery = implode(',', $buildQuery);
 
@@ -75,7 +81,7 @@ $queryExecute = "UPDATE users SET $buildQuery WHERE id = '$id'";
 $query = mysqli_query($conn, $queryExecute);
 
 if($query) {
-    header('Location: index.php');
+    header('Location: ../index.php');
 } else {
     header('Location: 404.php');
 }

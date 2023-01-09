@@ -22,9 +22,15 @@ $user = mysqli_fetch_assoc($query);
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="/process/update.php" method="post">
+            <form action="/process/update.php" method="post" enctype="multipart/form-data">
 
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                <div class="input-group input-group-outline my-3 focused is-focused">
+                    <label class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="image">
+                </div>
+
 
                 <div class="input-group input-group-outline my-3 focused is-focused">
                     <label for="first_name" class="form-label">First Name</label>
